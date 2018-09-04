@@ -18,7 +18,6 @@ public class HelloController {
         modelAndView.setViewName("index");
         return modelAndView;
     }
-
     @RequestMapping(value = "/test", method = RequestMethod.POST)
     public String test(Model model){
         model.addAttribute("data","SpringMVC");
