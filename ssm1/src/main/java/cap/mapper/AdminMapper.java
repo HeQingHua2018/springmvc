@@ -21,4 +21,5 @@ public interface AdminMapper {
     List<Admin> findByPage(@Param(value = "start") int start, @Param(value = "pageSize") int pageSize);
 
     int getTotalCount();
+
 }

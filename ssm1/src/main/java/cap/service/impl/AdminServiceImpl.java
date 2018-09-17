@@ -5,6 +5,7 @@ import cap.service.AdminService;
 import cap.mapper.AdminMapper;
 import cap.model.Admin;
 
+import cap.util.PageBean;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
@@ -38,5 +39,17 @@ public class AdminServiceImpl implements AdminService {
     @Override
     public int deleteAdmin(Integer id) {
         return adminMapper.deleteAdmin(id);
+    }
+
+    @Override
+    public PageBean findByPage(int pageNo, int pageSize) {
+        PageBean pageBean = new PageBean();
+        List<Admin> adminList = adminMapper.findByPage((pageNo - 1) * pageSize, pageSize);
+        int total = adminMapper.getTotalCount();
+        pageBean.setTotalRecords(total);
+        pageBean.setList(adminList);
+        pageBean.setPageSize(pageSize);
+        pageBean.setPageNo(pageNo);
+        return pageBean;
     }
 }
