@@ -8,6 +8,7 @@
         <outputRelativeToContentRoot value="true" />
         <module name="springmvc2" />
         <module name="springmvc3" />
+        <module name="springmvc4" />
         <module name="ssm1" />
         <module name="ssm2" />
       </profile>
